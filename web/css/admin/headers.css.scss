@@ -1,0 +1,78 @@
+@import "variables.css.scss";
+
+#main-header{
+	position: fixed;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	width: 30rem;
+	background: red;
+	min-height: 100vh;
+	background-color: #272634;
+
+	#company-data{
+		background-color: rgba(0,0,0,.22);
+		padding: 1.5rem;
+	}
+
+	#main-nav{
+		padding: 2rem 1.5rem;
+		a{
+			color : #858598;
+			text-transform: capitalize;
+			&:hover{
+				color: rgba(255,255,255,.8);;
+			}
+		}
+		h2{
+			color: rgba(255,255,255,.5);
+			text-transform: uppercase;
+			font-size: 1.3rem;
+			padding-bottom: 1rem;
+		}
+	}
+}
+
+#second-header{
+	position: fixed;
+	width: 100%;
+	right: 0;
+	z-index: 998;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	#user-data{
+		float: right;
+		background: red;
+		> li{
+			position: relative;
+			> a{
+				color: #858598;
+				text-transform: capitalize;
+				font-weight: 600;
+			}
+			> ul{
+				position: absolute;
+				bottom:-2rem;
+				right: 0;
+				border-radius: .3rem;
+				border:.1rem solid rgba(158,173,195,.16);
+				box-shadow: 0 1px 7px 2px rgba(135,158,171,.2);
+				background-color: #fff;
+				padding:.5rem 0;
+				min-width: 30rem;
+				.btn-logout{
+					border-top: .1rem solid rgba(158,173,195,.16);
+					padding: .5rem .5rem 0 .5rem;
+					> a {
+						background-color: $aqua;
+						font-weight: 600!important;
+						.material-icons{
+							font-weight: 600!important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

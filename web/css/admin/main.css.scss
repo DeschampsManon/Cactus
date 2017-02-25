@@ -38,7 +38,8 @@ img,
 input,
 textarea,
 label,
-video{
+video,
+i{
 	display:block;
 }
 
@@ -64,10 +65,13 @@ fieldset{
 	clear: both;
 }
 
+.page{
+	float: right; 
+}
+
 .container {
 	margin: 0 auto;
-	max-width: 128rem;
-	width: 90%;
+	width: 95%;
 }
 
 .col {
@@ -126,13 +130,24 @@ textarea{
 	resize: none;
 }
 
+/********************* BUTTONS *********************/
 
+.btn{
+	text-align: center;
+	color:#fff;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	border-radius: .3rem;
+	padding: .8rem 0;
+}
 
+/********************* ICONS *********************/
 
-
-
-
-
+.material-icons{
+	font-size: 1.4rem;
+    position: relative;
+    top: .2rem;
+}
 
 
 

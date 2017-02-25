@@ -8,12 +8,16 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="author" content="Manon DESCHAMPS">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {% stylesheets 'css/admin/*' filter='sass' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
 </head>
 <body>
-    {% include 'AdminBundle::header.html.twig' %}
+    {% include 'AdminBundle::Includes/main-header.html.twig' %}
+    <div class="page">
+        {% include 'AdminBundle::Includes/second-header.html.twig' %}
+    </div>
     <div class="container">
 
         {% block flash %}
