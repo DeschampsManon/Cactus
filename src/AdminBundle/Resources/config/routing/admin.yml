@@ -1,0 +1,5 @@
+admin_index:
+    path: /
+    defaults: { _controller: "AdminBundle:Default:index" }
+    requirements:
+        _method: GET

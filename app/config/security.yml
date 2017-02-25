@@ -1,0 +1,66 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:        [ROLE_USER]
+        ROLE_ADMIN:       [ROLE_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        
+        admin:
+            context: primary_auth
+            pattern:            ^/admin
+            form_login:
+                provider:       fos_userbundle
+                login_path:     admin_security_login
+                check_path:     admin_security_check
+                failure_path:   admin_index
+                default_target_path: admin_index
+                use_forward:    true
+                use_referer:    true
+            logout:
+                path: admin_security_logout
+            anonymous:    true
+
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                login_path:     fos_user_security_login
+                use_forward:    true
+                use_referer:    true
+                check_path:     fos_user_security_check
+                #failure_path:   null
+                default_target_path: fos_user_profile_show
+
+            logout:       
+                path: fos_user_security_logout
+            anonymous:    true
+
+    access_control:
+        # back-office
+
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/private-space, roles: ROLE_USER }
+
+        # front-office
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/profile, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/logout$, role: IS_AUTHENTICATED_FULLY }

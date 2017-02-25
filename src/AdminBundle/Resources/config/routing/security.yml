@@ -1,0 +1,15 @@
+admin_security_login:
+    path:     /login
+    defaults: { _controller: AdminBundle:Security:login }
+
+admin_security_check:
+    path:     /login-check
+    defaults: { _controller: AdminBundle:Security:check }
+    requirements:
+        _method: POST
+
+admin_security_logout:
+    path:     /logout
+    defaults: { _controller: AdminBundle:Security:logout }
+
+

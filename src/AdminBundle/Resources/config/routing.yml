@@ -1,0 +1,7 @@
+# SECURITY
+admin_security:
+    resource: "@AdminBundle/Resources/config/routing/security.yml"
+
+# ADMIN
+admin_bo:
+    resource: "@AdminBundle/Resources/config/routing/admin.yml"
