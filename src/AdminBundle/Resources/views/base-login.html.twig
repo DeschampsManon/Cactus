@@ -1,0 +1,29 @@
+{% include 'AdminBundle::Includes/head.html.twig' %}
+
+
+
+<div class="container">
+
+    {% block flash %}
+
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div>
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+        {% for flashMessage in app.session.flashbag.get('error') %}
+            <div>
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+
+    {% endblock %}
+
+        {% block content %}{% endblock %}
+
+
+        
+
+    </div>
+{% include 'AdminBundle::Includes/main-footer.html.twig' %}
