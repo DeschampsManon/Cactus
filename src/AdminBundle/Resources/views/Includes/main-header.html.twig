@@ -5,15 +5,28 @@
     </div>
     <nav id="main-nav">
         <ul>
-            <li>
-                <h2>overview</h2>
-            </li>
-            <li>
-                <a href="{{ path('admin_index') }}">
-                    <i class="material-icons">home</i>
-                    admin dashboard
-                </a>
-            </li>
+            <div>
+                <li>
+                    <h2>overview</h2>
+                </li>
+                <li>
+                    <a href="{{ path('admin_index') }}">
+                        <i class="material-icons">home</i>
+                        admin dashboard
+                    </a>
+                </li>
+            </div>
+            <div>
+                <li>
+                    <h2>users</h2>
+                </li>
+                <li>
+                    <a href="{{ path('admin_show_users') }}">
+                        <i class="material-icons">people</i>
+                        manage users
+                    </a>
+                </li>
+            </div>
         </ul>
     </nav>
 </header>  

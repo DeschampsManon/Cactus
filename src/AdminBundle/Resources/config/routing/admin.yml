@@ -3,3 +3,9 @@ admin_index:
     defaults: { _controller: "AdminBundle:Default:index" }
     requirements:
         _method: GET
+
+admin_show_users:
+    path: /users
+    defaults: { _controller: "AdminBundle:User:index" }
+    requirements:
+        _method: GET
