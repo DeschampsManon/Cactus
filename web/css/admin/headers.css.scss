@@ -1,5 +1,19 @@
 @import "variables.css.scss";
 
+#page-header{
+	background-color: rgba(252,252,252,.89);
+	padding: 2rem 0;
+	margin-top:1.9rem;
+	h1{
+		font-size: 1.8rem;
+	}
+	.subtitle{
+		color: $lightgrey;
+		font-weight:300;
+		font-size: 1.3rem;
+	}
+}
+
 #main-header{
 	position: fixed;
 	left: 0;
@@ -69,6 +83,7 @@
 				font-weight: 600;
 			}
 			> ul{
+			display:none;
 				position: absolute;
 				z-index: 1000;
 				right: 0;

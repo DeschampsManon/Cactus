@@ -67,6 +67,9 @@ fieldset{
 
 .page{
 	float: right; 
+	> .container{
+		padding-top: 4rem;
+	}
 }
 
 .container {
@@ -77,6 +80,13 @@ fieldset{
 .col {
 	float: left;
 	padding: 0 2rem;
+}
+
+.white-content{
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	border-radius: .4rem;
+	padding: 1.5rem 2rem;
 }
 
 /********************* WIDTH *********************/

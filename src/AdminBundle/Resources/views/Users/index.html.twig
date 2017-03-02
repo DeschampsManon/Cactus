@@ -2,12 +2,46 @@
 
 {% block title %}Home{% endblock %}
 
-{% block content %}
+{% block pageTitle %}Manage Users{% endblock %}
 
-<h1>get all users</h1>
-{% for user in users %}
-	<li>{{ user.username|e }}</li>
-{% endfor %}
-	   
-	
+{% block pageSubTitle %}Lorem ipsum dolor sit amet, consectetur adipisicing elit.{% endblock %}
+
+{% block content %}
+	<section class="white-content clearfix">
+	    <table class="main-table datatable">
+	   		<thead>
+		   		<tr>
+		   			<th>User</th>
+		   			<th>Email</th>
+		   			<th>Phone</th>
+		   			<th>Address</th>
+		   			<th>Roles</th>
+		   		</tr>
+		   	</thead>
+		   	<tbody>
+		   		{% for user in users %}
+					<tr>
+						<td>
+							{{ user.firstname }}
+							{{ user.lastname }}
+						</td>
+						<td>
+							{{ user.email }}
+						</td>
+						<td>
+							{{ user.phone }}
+						</td>
+						<td>
+							{{ user.address }}
+							{{ user.city }},
+							{{ user.zipCode }}
+						</td>
+						<td class="user-roles">
+							{{ user.roles|join(', ')|capitalize }}
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</section>
 {% endblock %}
