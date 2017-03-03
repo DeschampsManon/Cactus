@@ -124,6 +124,9 @@
 		&:first-child{
 			border-left:.1rem solid rgba(158,173,195,.16);
 		}
+		&.actions{
+			width: 12rem!important;
+		}
 	}
 	tbody{
 		tr{
@@ -187,6 +190,12 @@
 				}
 				&:after{
 					color: $aqua;
+				}
+			}
+			&.no-sorting{
+				&:after,
+				&:before{
+					display: none;
 				}
 			}
 		}	

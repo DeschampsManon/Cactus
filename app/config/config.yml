@@ -95,6 +95,7 @@ fos_user:
     from_email:
         address: noreply@example.com
         sender_name: Demo App
+    use_listener: false
 
 # Assetic Configuration
 assetic:
@@ -106,4 +107,8 @@ assetic:
         scssphp:
             formatter: 'Leafo\ScssPhp\Formatter\Compressed'
         jsqueeze: ~
+
+
+
+
 

@@ -26,6 +26,18 @@
                         manage users
                     </a>
                 </li>
+                <li>
+                    <a href="{{ path('admin_create_user') }}">
+                        <i class="material-icons">add</i>
+                        create user
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_update_user', {'id': app.user.id }) }}">
+                        <i class="material-icons">face</i>
+                        my profile
+                    </a>
+                </li>
             </div>
         </ul>
     </nav>

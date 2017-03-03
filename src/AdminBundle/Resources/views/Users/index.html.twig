@@ -1,10 +1,16 @@
 {% extends 'AdminBundle::base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}
+	Manage Users
+{% endblock %}
 
-{% block pageTitle %}Manage Users{% endblock %}
+{% block pageTitle %}
+	Manage Users
+{% endblock %}
 
-{% block pageSubTitle %}Lorem ipsum dolor sit amet, consectetur adipisicing elit.{% endblock %}
+{% block pageSubTitle %}
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+{% endblock %}
 
 {% block content %}
 	<section class="white-content clearfix">
@@ -16,6 +22,7 @@
 		   			<th>Phone</th>
 		   			<th>Address</th>
 		   			<th>Roles</th>
+		   			<th class="no-sorting actions">Actions</th>
 		   		</tr>
 		   	</thead>
 		   	<tbody>
@@ -38,6 +45,14 @@
 						</td>
 						<td class="user-roles">
 							{{ user.roles|join(', ')|capitalize }}
+						</td>
+						<td>
+							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-edit">
+								<i class="material-icons">mode_edit</i>
+							</a>
+							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-delete">
+								<i class="material-icons">delete</i>
+							</a>
 						</td>
 					</tr>
 				{% endfor %}

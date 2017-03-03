@@ -48,35 +48,35 @@ class User extends BaseUser
     /**
      * @var
      *
-     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
      */
     protected $firstname;
 
     /**
      * @var
      *
-     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
      */
     protected $lastname;
 
     /**
      * @var
      *
-     * @ORM\Column(name="address", type="text", nullable=true, nullable=true)
+     * @ORM\Column(name="address", type="text", nullable=true, nullable=false)
      */
     protected $address;
 
     /**
      * @var
      *
-     * @ORM\Column(name="zip_code", type="string", length=255, nullable=true)
+     * @ORM\Column(name="zip_code", type="string", length=255, nullable=false)
      */
     protected $zipCode;
 
     /**
      * @var
      *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     * @ORM\Column(name="city", type="string", length=255, nullable=false)
      */
     protected $city;
 

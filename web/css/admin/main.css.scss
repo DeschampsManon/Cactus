@@ -43,6 +43,10 @@ i{
 	display:block;
 }
 
+img{
+	max-width: 100%;
+}
+
 input[type="checkbox"]{
 	display: inline;
 	height: inherit;
@@ -67,9 +71,6 @@ fieldset{
 
 .page{
 	float: right; 
-	> .container{
-		padding-top: 4rem;
-	}
 }
 
 .container {
@@ -77,16 +78,32 @@ fieldset{
 	width: 95%;
 }
 
+.row{
+	display: block;
+	overflow: hidden;
+	margin: 0 -1rem;
+	padding-bottom: 1.5rem;
+}
+
 .col {
 	float: left;
-	padding: 0 2rem;
+	padding: 0 1rem;
 }
 
 .white-content{
 	background-color: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
 	border-radius: .4rem;
-	padding: 1.5rem 2rem;
+	padding: 2.5rem 2em;
+	h2{
+		font-weight: 400;
+	    font-size: 1.5rem;
+	    border-bottom: .1rem solid #F7F7F7;
+	    padding-bottom: 1.5rem;
+	    margin-bottom: 2rem;
+	}
 }
 
 /********************* WIDTH *********************/
@@ -111,16 +128,27 @@ fieldset{
 	width: 25%;
 }
 
-.trois-quarts {
+.trois-quart {
 	width: 75%;
 }
 
 /********************* FORM *********************/
 
+label{
+	font-size: 1.2rem;
+	font-weight: 700;
+    padding-bottom: .5rem;
+}
+
 input,
 textarea{
 	width: 100%;
-	padding: 1.2rem;
+	padding: .6rem 1.2rem;
+	border: .1rem solid #dfe8f1;
+	box-shadow: inset 1px 1px 3px #f6f6f6;
+	-webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
+	-moz-box-shadow: inset 1px 1px 3px #f6f6f6;
+	border-radius: .4rem;
 }
 
 input:focus,
@@ -129,11 +157,13 @@ textarea:focus{
 }
 
 input{
-	height: 4rem;
+	height: 3.5rem;
 }
 
-input[type="submit"]{
+input[type="submit"],
+button[type="submit"]{
 	cursor: pointer;
+	float: right;
 }
 
 textarea{
@@ -148,7 +178,34 @@ textarea{
 	text-transform: uppercase;
 	font-size: 1.2rem;
 	border-radius: .3rem;
-	padding: .8rem 0;
+	padding: .8rem 2rem;
+	display: inline;
+}
+
+
+.btn-edit,
+.btn-delete{
+	margin-right: .08rem;
+	.material-icons{
+		padding: 0 1rem;
+    	font-size: 1.5rem;
+	}
+}
+
+.btn-aqua{
+	background-color: $aqua;
+	border:.1rem solid #339186;
+	&:hover{
+		background-color: #33B0A2;
+	}
+}
+
+.btn-darkpurple{
+	background-color: $darkpurple;
+	border:.1rem solid #000026;
+	&:hover{
+		background-color: #33335C;
+	}
 }
 
 /********************* ICONS *********************/

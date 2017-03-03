@@ -9,3 +9,15 @@ admin_show_users:
     defaults: { _controller: "AdminBundle:User:index" }
     requirements:
         _method: GET
+
+admin_update_user:
+    path: /users/edit/{id}
+    defaults: { _controller: "AdminBundle:User:update" }
+    requirements:
+        _method: GET
+
+admin_create_user:
+    path: /users/create
+    defaults: { _controller: "AdminBundle:User:create" }
+    requirements:
+        _method: GET
