@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping\AttributeOverrides;
+use Doctrine\ORM\Mapping\AttributeOverride;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -11,6 +13,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @package AppBundle\Entity
  * @ORM\Table(name="fos_user")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class User extends BaseUser
 {
@@ -48,35 +51,35 @@ class User extends BaseUser
     /**
      * @var
      *
-     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
-    protected $firstname;
+    protected $first_name;
 
     /**
      * @var
      *
-     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
-    protected $lastname;
+    protected $last_name;
 
     /**
      * @var
      *
-     * @ORM\Column(name="address", type="text", nullable=true, nullable=false)
+     * @ORM\Column(name="address", type="text", nullable=true, nullable=true)
      */
     protected $address;
 
     /**
      * @var
      *
-     * @ORM\Column(name="zip_code", type="string", length=255, nullable=false)
+     * @ORM\Column(name="zip_code", type="string", length=255, nullable=true)
      */
-    protected $zipCode;
+    protected $zip_code;
 
     /**
      * @var
      *
-     * @ORM\Column(name="city", type="string", length=255, nullable=false)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     protected $city;
 
@@ -93,6 +96,20 @@ class User extends BaseUser
      * @ORM\Column(name="phone", type="string", length=255, nullable=true)
      */
     protected $phone;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    protected $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
+     */
+    protected $updated_at;
 
     /**
      * Constructor
@@ -120,11 +137,11 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $firstname
+     * @param mixed $first_name
      */
-    public function setFirstname($firstname)
+    public function setFirstname($first_name)
     {
-        $this->firstname = $firstname;
+        $this->first_name = $first_name;
     }
 
     /**
@@ -132,15 +149,15 @@ class User extends BaseUser
      */
     public function getFirstname()
     {
-        return $this->firstname;
+        return $this->first_name;
     }
 
     /**
-     * @param mixed $lastname
+     * @param mixed $last_name
      */
-    public function setLastname($lastname)
+    public function setLastname($last_name)
     {
-        $this->lastname = $lastname;
+        $this->last_name = $last_name;
     }
 
     /**
@@ -148,7 +165,7 @@ class User extends BaseUser
      */
     public function getLastname()
     {
-        return $this->lastname;
+        return $this->last_name;
     }
 
 
@@ -218,11 +235,11 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $zipCode
+     * @param mixed $zip_code
      */
-    public function setZipCode($zipCode)
+    public function setZipCode($zip_code)
     {
-        $this->zipCode = $zipCode;
+        $this->zip_code = $zip_code;
     }
 
     /**
@@ -230,7 +247,7 @@ class User extends BaseUser
      */
     public function getZipCode()
     {
-        return $this->zipCode;
+        return $this->zip_code;
     }
 
     /**
@@ -278,6 +295,71 @@ class User extends BaseUser
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $created_at
+     *
+     * @return Article
+     */
+    public function setCreated_at($created_at)
+    {
+        $this->setcreated_at(new \Datetime());
+    }
+    
+    /**
+     * Get created_at
+     *
+     * @return \DateTime
+     */
+    public function getCreated_at()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdated_at()
+    {
+        return $this->updated_at;
+    }
+
+
+    public function setUpdated_at()
+    {
+        $this->setupdated_at(new \Datetime());
+    }
+
+    /**
+     * Triggered on insert
+     * @ORM\PrePersist
+     */
+    public function onPrePersist()
+    {
+        $this->created_at = new \DateTime("now");
+    }
+    /**
+     * Triggered on update
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        $this->updated_at = new \DateTime("now");
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     * @ORM\PrePersist()
+    */
+    public function setUsernameToEmail()
+    {
+        $this->username = $this->email;
+        $this->usernameCanonical = $this->emailCanonical;
     }
 }
 
