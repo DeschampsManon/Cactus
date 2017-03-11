@@ -41,16 +41,16 @@
 						<td>
 							{{ user.address }}
 							{{ user.city }},
-							{{ user.zipCode }}
+							{{ user.zipcode }}
 						</td>
 						<td class="user-roles">
 							{{ user.roles|join(', ')|capitalize }}
 						</td>
 						<td>
-							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-edit">
+							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-aqua">
 								<i class="material-icons">mode_edit</i>
 							</a>
-							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-delete">
+							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-darkpurple">
 								<i class="material-icons">delete</i>
 							</a>
 						</td>
