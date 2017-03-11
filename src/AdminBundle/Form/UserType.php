@@ -25,7 +25,11 @@ class UserType extends AbstractType
                     'Admin' => 'ROLE_ADMIN',
                     'Super Admin' => 'ROLE_SUPER_ADMIN'
                 ),
-                'multiple'=>true
+                'multiple'=>true,
+                'choices_as_values'=>true,
+                'choice_value'=>function($choice){
+                    return $choice;
+                }
             ))
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, array(
