@@ -24,11 +24,17 @@ textarea,
     -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
     -moz-box-shadow: inset 1px 1px 3px #f6f6f6;
     border-radius: .4rem;
-}
-
-input:focus,
-textarea:focus{
-    outline: none;
+    &:focus,
+    &.select2-container--open{
+        outline: none;
+        border-color: $aqua;
+    }
+    &.select2-container--open{
+        border-bottom: 0 solid transparent;
+    }
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    }
 }
 
 input,
@@ -55,9 +61,10 @@ textarea{
         height: 100%;
         min-height: inherit!important;
         border: 0 solid transparent!important;
-        background: pink;
+        overflow-x: scroll; 
         > ul{
             padding: 0!important;
+            min-width: 200%!important;
             > li {
                 margin-top: 0!important;
                 font-size: 1.1rem!important;
@@ -71,7 +78,8 @@ textarea{
         }
     }
     .select2-dropdown{
-        border: .1rem solid #dfe8f1!important;
+        border: .1rem solid $aqua!important;
+        border-top: 0 solid transparent!important;
         box-shadow: inset 1px 1px 3px #f6f6f6;
         -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
         -moz-box-shadow: inset 1px 1px 3px #f6f6f6;

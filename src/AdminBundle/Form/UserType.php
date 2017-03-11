@@ -23,7 +23,7 @@ class UserType extends AbstractType
                 'choices' => array(
                     'Member' => 'ROLE_USER', 
                     'Admin' => 'ROLE_ADMIN',
-                    'Super Admin' => 'ROLE_SUPER_ADMIN'
+                    'Super Admin' => 'ROLE_SUPER_ADMIN',
                 ),
                 'multiple'=>true,
                 'choices_as_values'=>true,
