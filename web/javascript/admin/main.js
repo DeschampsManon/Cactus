@@ -17,7 +17,7 @@ function display_user_roles(){
 $(document).ready(function(){
 	page_width();
 	display_user_roles();
-	$("select").chosen();
+	$('select').select2();
 })
 
 $(window).resize(function(){
