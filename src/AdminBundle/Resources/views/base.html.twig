@@ -12,6 +12,7 @@
     {% stylesheets 'css/admin/*' filter='sass' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 {% include 'AdminBundle::Includes/main-header.html.twig' %}
@@ -30,4 +31,15 @@
     	{% block content %}{% endblock %}
     </div>
 </div>
-{% include 'AdminBundle::Includes/main-footer.html.twig' %}
+{% block footer %}{% endblock footer %}
+{% javascripts 'javascript/library/jquery-3.1.1.min.js' 
+               'javascript/library/jquery.dataTables.min.js' 
+               'javascript/library/datatable-launcher.js' 
+               'javascript/admin/*'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+</body>
+</html>
