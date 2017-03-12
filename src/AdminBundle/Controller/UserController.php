@@ -58,6 +58,13 @@ class UserController extends Controller {
         );
     }
 
+    public function deleteAction($id) 
+    {	
+    	$userManager = $this->get('fos_user.user_manager');
+        $user = $userManager->findUserBy(array('id' => $id));
+		$userManager->deleteUser($user);
 
+        return $this->redirectToRoute('admin_show_users');
+    }
 
 }

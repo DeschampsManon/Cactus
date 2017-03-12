@@ -1,0 +1,57 @@
+@import "variables.css.scss";
+
+.modal{
+	position:fixed;
+	top:0;
+	left: 0;
+	z-index: 5000;
+	width:100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	color: #434343;
+	&.fade{
+		display: none;
+	}
+	.modal-content{
+		background-color: #fff;
+		max-width: 75rem;
+		margin:0 auto;
+		margin-top: 20vh;
+		padding:2.4rem;
+		box-shadow : 0 8px 10px 1px rgba(0,0,0,0.14),
+		             0 3px 14px 2px rgba(0,0,0,0.12), 
+		             0 5px 5px -3px rgba(0,0,0,0.3);
+		border-radius: .2rem;
+		display: block;
+		overflow: hidden;
+		.modal-header{
+			h4{
+				font-size: 2rem;
+				font-weight: 600;
+				margin-bottom: .8rem;
+				text-transform: capitalize;
+				float: left;
+			}
+			.close-modal{
+				float: right;
+				padding: .4rem 0;
+				color: $pink;
+				i{
+					font-weight:900;
+				}
+			}
+		}
+		.modal-footer{
+			a{
+				text-transform: uppercase;
+				float: right;
+				color: #434343;
+    			font-weight: 600;
+    			padding: .5rem 1.8rem;
+    			&:hover{
+    				background-color: rgba(0,0,0,.08);
+    			}
+			}
+		}
+	}
+}

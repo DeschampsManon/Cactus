@@ -1,0 +1,18 @@
+<div id="delete-confirmation_{{user.id}}" class="modal fade">
+	<div class="modal-content">
+		<div class="modal-header clearfix">
+		 	<h4>
+		  		delete confirmation
+		  	</h4>
+		  	<a href="#!" class="close-modal">
+				<i class="material-icons">close</i>
+			</a>
+		</div>
+		<div class="modal-body">
+			<p>are you sure ?</p>
+		</div>
+		<div class="modal-footer">
+	  		<a href="{{ path('admin_delete_user', {'id': user.id }) }}">Agree</a>
+		</div>
+	</div>
+</div>

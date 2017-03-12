@@ -50,9 +50,10 @@
 							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-aqua">
 								<i class="material-icons">mode_edit</i>
 							</a>
-							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-darkpurple">
+							<a href="#!" class="btn btn-darkpurple" data-toggle="modal" data-target="#delete-confirmation_{{user.id}}">
 								<i class="material-icons">delete</i>
 							</a>
+							{{ include('AdminBundle::Includes/delete-confirmation.html.twig') }}
 						</td>
 					</tr>
 				{% endfor %}
@@ -60,3 +61,5 @@
 		</table>
 	</section>
 {% endblock %}
+
+

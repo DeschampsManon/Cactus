@@ -21,3 +21,9 @@ admin_create_user:
     defaults: { _controller: "AdminBundle:User:create" }
     requirements:
         _method: GET
+
+admin_delete_user:
+    path: /users/delete/{id}
+    defaults: { _controller: "AdminBundle:User:delete" }
+    requirements:
+        _method: GET
