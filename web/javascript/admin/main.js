@@ -5,14 +5,14 @@ function page_width() {
 	$(".page").css("width",calc_width);
 }
 
-function display_user_roles(){
-	$(".user-roles").each(function(){
-		var content = $(this).text();
-		var new_content = content.replace(/_/g, ' ').replace(/role/gi, '');;
-		console.log(new_content)
-		$(this).text(new_content)
-	})
-}
+// function display_user_roles(){
+// 	$(".user-roles").each(function(){
+// 		var content = $(this).text();
+// 		var new_content = content.replace(/_/g, ' ').replace(/role/gi, '');;
+// 		console.log(new_content)
+// 		$(this).text(new_content)
+// 	})
+// }
 
 function display_modal(){
 	var modal = $(this).data("target");
@@ -25,12 +25,17 @@ function close_modal(){
 	$("body").removeClass("modal-open");
 }
 
+function display_user_data(){
+	$(this).parent().find("ul").slideToggle();
+}
+
 $(document).ready(function(){
 	page_width();
-	display_user_roles();
+	$('select').select2();
+	//display_user_roles();
 	$("[data-toggle='modal']").click(display_modal);
 	$(".close-modal, .modal").click(close_modal);
-	$('select').select2();
+	$("#user-data > li > a").click(display_user_data);
 })
 
 $(window).resize(function(){
