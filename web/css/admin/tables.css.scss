@@ -121,6 +121,7 @@
 		border:.1rem solid rgba(158,173,195,.16);
 		border-left: 0;
 		font-size: 1.3rem;
+		text-transform: capitalize;
 		&:first-child{
 			border-left:.1rem solid rgba(158,173,195,.16);
 		}
@@ -164,12 +165,14 @@
 		th{
 			cursor: pointer;
 			position: relative;
+			text-transform: capitalize!important;
 			&:after,
 			&:before{
 				font-family: 'Material Icons';
 				position: absolute;
 			    right: 1.8rem;
 			    font-size: 1.5rem;
+			    text-transform: none;
 			}
 			&:after{
 				content: "arrow_drop_down";

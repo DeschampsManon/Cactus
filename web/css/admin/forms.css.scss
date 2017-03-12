@@ -1,5 +1,13 @@
 @import "variables.css.scss";
 
+#user-form{
+   > .col:last-child{
+        width: calc(100% - 17rem);
+        width: -webkit-calc(100% - 17rem);
+        width: -moz-calc(100% - 17rem);
+   }
+}
+
 label{
     font-size: 1.2rem;
     font-weight: 700;

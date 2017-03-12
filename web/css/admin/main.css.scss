@@ -107,6 +107,27 @@ fieldset{
 	}
 }
 
+.content-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 153px;
+  &.avatar{
+  	border-radius:50%;
+  	width: 15rem;
+  	height: 15rem;
+  	border: .1rem solid #dfe8f1;
+    box-shadow: inset 1px 1px 3px #f6f6f6;
+    -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
+    -moz-box-shadow: inset 1px 1px 3px #f6f6f6;
+  }
+  overflow: hidden;
+  img{
+    height: 100%;
+    max-width: inherit;
+  }
+}
+
 /********************* WIDTH *********************/
 
 .total {
