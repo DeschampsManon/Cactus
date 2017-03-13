@@ -2,11 +2,12 @@ function page_width() {
 	var main_header_width = $("#main-header").width();
 	var window_width = $(window).width();
 	var calc_width = window_width - main_header_width;
-	if( $("#main-header").position().top > 0){
-		$(".page").css("width", calc_width);
+	if( $("#main-header").position().left == 0){
+		$(".page").css("width", calc_width+"px");
 	} else {
 		$(".page").css("width", "100%");
 	}
+	console.log(main_header_width)
 }
 
 // function display_user_roles(){
@@ -36,18 +37,27 @@ function display_user_data(){
 function minus_nav(){
 	var main_header = $("#main-header")
 	if( $(window).width() >= 1300 ){
-		main_header.animate({ width : "30rem"}, 200);
+		main_header.animate({ width : "30rem"}, 150, function(){
+			page_width();
+		});
 		main_header.removeClass("min-nav");
 		main_header.css({ left : 0 });
 	} else if ( $(window).width() <= 1300 && $(window).width() >= 760 ) {
 		main_header.addClass("min-nav");
-		main_header.animate({ width : "10rem"}, 200);
+		main_header.animate({ width : "10rem"}, 150, function(){
+			page_width();
+		});
 		main_header.css({ left : 0 });
+
 	} else {
 		main_header.removeClass("min-nav");
-		main_header.animate({ width : "100%"}, 200);
+		main_header.animate({ width : "100%"}, 150, function(){
+			page_width();
+		});
 		main_header.css({ left : "-100%" });
 	}
+
+	//page_width();
 }
 
 function responsive_nav(boolean){
@@ -59,8 +69,8 @@ function responsive_nav(boolean){
 }
 
 $(document).ready(function(){
-	page_width();
 	minus_nav();
+	//$.when(minus_nav()).done(page_width());
 	$('select').select2();
 	$("[data-toggle='modal']").click(display_modal);
 	$(".close-modal, .modal").click(close_modal);
@@ -74,6 +84,6 @@ $(document).ready(function(){
 })
 
 $(window).resize(function(){
-	page_width();
 	minus_nav();
+	//$.when(minus_nav()).done(page_width());
 })
