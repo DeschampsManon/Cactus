@@ -32,6 +32,7 @@ class UserController extends Controller {
             $avatar = $user->getAvatar();
             $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
 
+            $user->setAvatar($avatarName);
             $userManager->updateUser($user);
             return $this->redirectToRoute('admin_show_users');
             

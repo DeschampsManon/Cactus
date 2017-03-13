@@ -125,6 +125,9 @@
 		&:first-child{
 			border-left:.1rem solid rgba(158,173,195,.16);
 		}
+		&.action{
+			width: 108px!important;
+		}
 	}
 	tbody{
 		tr{
@@ -154,6 +157,7 @@
 			.btn{
 				margin-right: .2rem;
 				padding:.8rem 0;
+				float:left;
 				.material-icons{
 					padding: 0 1rem;
 			    	font-size: 1.5rem;
@@ -170,6 +174,7 @@
 			&:before{
 				font-family: 'Material Icons';
 				position: absolute;
+				top: 1rem;
 			    right: 1.8rem;
 			    font-size: 1.5rem;
 			    text-transform: none;

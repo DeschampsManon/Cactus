@@ -31,6 +31,11 @@ body {
 a{
 	display:block;
 	text-decoration:none;
+	&.mailto{
+		color: $pink;
+		text-decoration: underline;
+		opacity: .6;
+	}
 }
 
 ul,ol{
@@ -132,6 +137,15 @@ fieldset{
   	border-radius:50%;
   	width: 15rem;
   	height: 15rem;
+  	border: .1rem solid #dfe8f1;
+    box-shadow: inset 1px 1px 3px #f6f6f6;
+    -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
+    -moz-box-shadow: inset 1px 1px 3px #f6f6f6;
+  }
+  &.picture{
+  	width: 5rem;
+  	height: 5rem;
+  	border-radius: 50%;
   	border: .1rem solid #dfe8f1;
     box-shadow: inset 1px 1px 3px #f6f6f6;
     -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;

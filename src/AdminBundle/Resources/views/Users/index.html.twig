@@ -17,25 +17,30 @@
 	    <table class="main-table datatable">
 	   		<thead>
 		   		<tr>
-		   			<th>user</th>
-		   			<th>email</th>
-		   			<th>phone</th>
+		   			<th class="no-sorting no-border-right no-padding-right">user</th>
+		   			<th> </th>
+		   			<th>contact</th>
 		   			<th>address</th>
 		   			<th>roles</th>
-		   			<th class="no-sorting">actions</th>
+		   			<th class="no-sorting action">actions</th>
 		   		</tr>
 		   	</thead>
 		   	<tbody>
 		   		{% for user in users %}
 					<tr>
+						<td class="no-border-right no-padding-right">
+							<div class="content-flex picture pull-left">
+								<img src="{{ asset('images/avatar/' ~ user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';">
+							</div>
+						</td>
 						<td>
 							{{ user.firstname }}
 							{{ user.lastname }}
 						</td>
 						<td>
-							{{ user.email }}
-						</td>
-						<td>
+							<a href="mailto:{{ user.email }}" class="mailto">
+								{{ user.email }}
+							</a>
 							{{ user.phone }}
 						</td>
 						<td>
