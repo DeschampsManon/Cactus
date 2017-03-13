@@ -23,7 +23,7 @@
         {% block content %}{% endblock %}
 
 
-        
+         {{ path(app.request.attributes.get('_route')) }}
 
     </div>
 {% include 'AdminBundle::Includes/main-footer.html.twig' %}

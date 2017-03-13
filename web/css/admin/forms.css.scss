@@ -20,6 +20,12 @@ label{
             color: $pink;
         }
     }
+    &.label-checkbox{
+        float: left;
+        font-weight: 400;
+        margin-top: -.3rem;
+        margin-left: .5rem;
+    }
 }
 
 input,
@@ -42,6 +48,10 @@ textarea,
     }
     &:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    }
+    &[type="checkbox"]{
+        width: initial!important;
+        float: left;
     }
 }
 

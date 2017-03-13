@@ -56,8 +56,6 @@ function minus_nav(){
 		});
 		main_header.css({ left : "-100%" });
 	}
-
-	//page_width();
 }
 
 function responsive_nav(boolean){
@@ -68,10 +66,39 @@ function responsive_nav(boolean){
 	}
 }
 
+function login_form(){
+	var input = ($("#login-page .input-container input"));
+
+	input.each(function(){
+		$(this).after("<div class='input-border-focus'></div>")
+		if( $(this).val() ){
+			$(this).parent().find("label").animate({ bottom: "3.5rem" }, 400 );
+			$(this).parent().addClass("active");
+			console.log($(this).val());
+		}
+		
+	});
+
+	input.focus(function(){
+		$(this).parent().find(".input-border-focus").animate({ left : 0 }, 400);
+		$(this).parent().find("label").animate({ bottom: "3.5rem" }, 400 );
+		$(this).parent().addClass("active");
+	
+	});
+	
+	input.blur(function(){
+		$(this).parent().find(".input-border-focus").animate({ left : "-100%" }, 400);
+		if( !$(this).val() ){
+			$(this).parent().find("label").animate({ bottom: ".45rem" }, 400 );
+			$(this).parent().removeClass("active");
+		}
+	})
+}
+
 $(document).ready(function(){
 	minus_nav();
-	//$.when(minus_nav()).done(page_width());
 	$('select').select2();
+	login_form();
 	$("[data-toggle='modal']").click(display_modal);
 	$(".close-modal, .modal").click(close_modal);
 	$("#user-data > li > a").click(display_user_data);
@@ -85,5 +112,4 @@ $(document).ready(function(){
 
 $(window).resize(function(){
 	minus_nav();
-	//$.when(minus_nav()).done(page_width());
 })

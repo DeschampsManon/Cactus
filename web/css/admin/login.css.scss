@@ -1,0 +1,77 @@
+@import "variables.css.scss";
+
+#login-page{
+	form{
+		max-width: 40rem;
+		width: 100%;
+		padding:2.5rem 3rem;
+		background-color: $darkpurple;
+		min-height: 100vh;
+		label{
+			color: #fff;
+			cursor: pointer;
+		}
+		.input-container{
+			position: relative;
+			overflow: hidden;
+			margin-bottom: 2rem;
+			&.active{
+				padding-top: 3.5rem;
+			}
+			label {
+				text-transform: uppercase;
+				font-weight: 400;
+				color: rgba(255,255,255,.8);
+				position: absolute;
+				left: 0;
+				bottom: .45rem;
+			}
+			input{
+				background-color: transparent!important;
+				border: 0 transparent solid;
+				border-bottom: .2rem solid #fff;
+				border-radius: 0;
+				color: #fff!important;
+				padding: 0;
+				font-size: 1.2rem;
+				box-shadow: none;
+				&:-webkit-autofill {
+			        -webkit-box-shadow: 0 0 0px 1000px $darkpurple inset;
+			        -webkit-text-fill-color: #fff!important;
+			    }
+			}
+			.input-border-focus{
+				width: 100%;
+				height: .2rem;
+				background-color: $aqua;
+				position: absolute;
+				left: -100%;
+				bottom: 0;
+			}
+		}
+		input[type="submit"]{
+			box-shadow: none;
+			font-weight: 600;
+			margin-top:2rem;
+		}
+		input[type="checkbox"]{
+			&:after {
+			    content: " ";
+			    background-color: #9FFF9D;
+			    display: inline-block;
+			    visibility: visible;
+			    width: 12px;
+			    height: 12px;
+			    border-radius: .4rem;
+			    text-align: center;
+			    background-color: #fff;
+			}
+			&:checked{
+				&:after{
+					content: "\2714";
+					color: $pink;
+				}
+			}
+		}
+	}
+}

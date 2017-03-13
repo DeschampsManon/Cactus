@@ -1,34 +1,33 @@
-{% extends 'AdminBundle::base-login.html.twig' %}
+{% extends 'AdminBundle::base.html.twig' %}
+
+{% block title %}
+    Login
+{% endblock %}
 
 {% block content %}
-
-    <div id="layout-view" class="view view-login">
+    <section id="login-page" class="clearfix">
         {% if error %}
             <div class="bg-danger">{{ error|trans({}, 'FOSUserBundle') }}</div>
         {% endif %}
-        <div id="login-form" class="col-md-4 col-md-offset-4">
+        
+        <form action="{{ path("admin_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="input-container">
+                <label for="username">email</label>
+                <input type="email" id="username" name="_username" value="{{ last_username }}" required="required">
+            </div>
+            <div class="input-container">
+                <label for="password">password</label>
+                <input type="password" id="password" name="_password" value="password">
+            </div>
+            
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on">
+            <label for="remember_me" class="label-checkbox">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+           
 
-            <h1 class="text-center">Blog Test</h1>
+            <input class="btn btn-aqua" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
 
-            <form action="{{ path("admin_security_check") }}" method="post" class="center-block">
-
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-                <div class="form-group">
-                    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'email_address'|trans }}"/>
-                </div>
-                <div class="form-group">
-                    <input class="form-control" type="password" id="password" name="_password" required="required" placeholder="{{ 'password'|trans }}"/>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                </div>
-
-                <input class="btn btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-
-            </form>
-
-        </div>
-    </div>
+        </form>
+        
+    </section>
 {% endblock %}
