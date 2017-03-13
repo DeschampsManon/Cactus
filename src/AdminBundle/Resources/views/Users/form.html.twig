@@ -3,7 +3,7 @@
     <div class="col relative">
         {{ form_row(form.avatar, {'id': 'original-file-upload'}) }}
         <div class="content-flex avatar relative">
-            <img src="{{ asset('images/test.jpg') }} ">
+            <img src="{{ asset(user.avatar) }}">
             <label for="original-file-upload">
               <i class="material-icons" id="burger-menu-close">
                 cloud_download

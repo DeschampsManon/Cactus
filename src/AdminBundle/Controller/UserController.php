@@ -28,8 +28,13 @@ class UserController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $avatar = $user->getAvatar();
+            $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
+
             $userManager->updateUser($user);
             return $this->redirectToRoute('admin_show_users');
+            
         }
 
         return $this->render(
@@ -48,8 +53,17 @@ class UserController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $avatar = $user->getAvatar();
+            $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
+            // $avatar->move(
+            //     $this->getParameter('avatars_directory'),
+            //     $avatarName
+            // );
+
             $userManager->updateUser($user);
             return $this->redirectToRoute('admin_show_users');
+
         }
 
         return $this->render(

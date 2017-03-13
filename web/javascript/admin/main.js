@@ -7,7 +7,6 @@ function page_width() {
 	} else {
 		$(".page").css("width", "100%");
 	}
-	console.log(main_header_width)
 }
 
 // function display_user_roles(){

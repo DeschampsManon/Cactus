@@ -113,9 +113,9 @@ class User extends BaseUser
     protected $updated_at;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="avatar", type="string", nullable=true)
      *
-     * @Assert\File(mimeTypes={ "image/png, image/gif, image/jpeg, image/pjpeg" })
+     * @Assert\File(mimeTypes={ "image/png", "image/gif", "image/jpeg", "image/pjpeg" })
      */
     private $avatar;
 
