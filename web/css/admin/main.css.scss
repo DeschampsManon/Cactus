@@ -23,6 +23,9 @@ body {
 	background-color:#F4F5F7; 
 	color:#434343;
 	font-size: 1.4rem;  
+	&.modal-open{
+		overflow: hidden;
+	}
 }
 
 a{
