@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\AttributeOverrides;
 use Doctrine\ORM\Mapping\AttributeOverride;
+use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
 
 /**
@@ -110,6 +111,13 @@ class User extends BaseUser
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     protected $updated_at;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\File(mimeTypes={ "image/png, image/gif, image/jpeg, image/pjpeg" })
+     */
+    private $avatar;
 
     /**
      * Constructor
@@ -264,6 +272,18 @@ class User extends BaseUser
     public function getPhone()
     {
         return $this->phone;
+    }
+
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
     }
 
     /**

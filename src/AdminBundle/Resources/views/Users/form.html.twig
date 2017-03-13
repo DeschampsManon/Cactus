@@ -1,8 +1,14 @@
 {{ form_start(form) }}
 <div class="row" id="user-form">
-    <div class="col">
-        <div class="content-flex avatar">
+    <div class="col relative">
+        {{ form_row(form.avatar, {'id': 'original-file-upload'}) }}
+        <div class="content-flex avatar relative">
             <img src="{{ asset('images/test.jpg') }} ">
+            <label for="original-file-upload">
+              <i class="material-icons" id="burger-menu-close">
+                cloud_download
+              </i>
+            </label>
         </div>
     </div>
     <div class="col">
