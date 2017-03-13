@@ -24,19 +24,59 @@
 	background: red;
 	min-height: 100vh;
 	background-color: $darkgrey;
-
+	&.min-nav{
+		#main-nav{
+			ul{
+				> div {
+					padding-bottom: 0;
+					> li {
+						h2 {
+							display: none;
+						}
+						a {
+							p {
+								display: none;
+							}
+							.material-icons{
+								width: 4.6rem;
+							    height: 4.6rem;
+							    font-size: 2.2rem;
+							    float: none;
+							    margin: 0 auto;
+							    display: block;
+							    padding-top: 1.1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	#company-data{
 		background-color: rgba(0,0,0,.22);
 		padding: 1.5rem;
+		display: block;
+		overflow: hidden;
+		#burger-menu-close{
+			float: left;
+			color: $pink;
+			font-size: 2.4rem;
+			cursor: pointer;
+			font-weight: 900;
+			display: none;
+		}
 	}
-
 	#main-nav{
 		padding: 2rem 1.5rem;
 		ul {
 			> div {
 				padding-bottom: 2rem; 
+				display: block;
+				overflow: hidden;
 				> li{ 
 					padding-bottom: 1rem;
+					display: block;
+					overflow: hidden;
 					&:first-child{
 						padding-bottom: 0;
 					}
@@ -46,7 +86,12 @@
 						&:hover{
 							color: rgba(255,255,255,.8);;
 						}
+						p{
+							float: left;
+							padding-top: .8rem;
+						}
 						.material-icons{
+							float: left;
 							background-color: rgba(0,0,0,.31);
 							border: .1rem solid rgba(0, 0, 0, 0.2);
 							opacity: .6;
@@ -81,6 +126,14 @@
 	background-color: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
 	padding: 1rem 0;
+	#burger-menu-open{
+		float: left;
+		color: $pink;
+		font-size: 2.4rem;
+		cursor: pointer;
+		font-weight: 900;
+		display: none;
+	}
 	#user-data{
 		float: right;
 		> li{
@@ -166,6 +219,19 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+@media only screen and (max-width : 760px) {
+	#main-header{
+		#burger-menu-close{
+			display: block!important;
+		}
+	}
+	#second-header{
+		#burger-menu-open{
+			display: block;
 		}
 	}
 }

@@ -1,7 +1,6 @@
 <header id="main-header">
     <div id="company-data">
-        logo + company name
-        {{ app.user.firstname }}
+        <i class="material-icons" id="burger-menu-close">close</i>
     </div>
     <nav id="main-nav">
         <ul>
@@ -12,7 +11,7 @@
                 <li>
                     <a href="{{ path('admin_index') }}">
                         <i class="material-icons">home</i>
-                        admin dashboard
+                        <p>admin dashboard</p>
                     </a>
                 </li>
             </div>
@@ -23,19 +22,19 @@
                 <li>
                     <a href="{{ path('admin_show_users') }}">
                         <i class="material-icons">people</i>
-                        manage users
+                        <p>manage users</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ path('admin_create_user') }}">
                         <i class="material-icons">add</i>
-                        create user
+                        <p>create user</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ path('admin_update_user', {'id': app.user.id }) }}">
                         <i class="material-icons">face</i>
-                        my profile
+                        <p>my profile</p>
                     </a>
                 </li>
             </div>
