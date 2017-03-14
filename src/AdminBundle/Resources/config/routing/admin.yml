@@ -14,13 +14,13 @@ admin_update_user:
     path: /users/edit/{id}
     defaults: { _controller: "AdminBundle:User:update" }
     requirements:
-        _method: GET
+        _method: PATH
 
 admin_create_user:
     path: /users/create
     defaults: { _controller: "AdminBundle:User:create" }
     requirements:
-        _method: GET
+        _method: POST
 
 admin_delete_user:
     path: /users/delete/{id}

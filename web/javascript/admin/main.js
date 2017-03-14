@@ -9,15 +9,6 @@ function page_width() {
 	}
 }
 
-// function display_user_roles(){
-// 	$(".user-roles").each(function(){
-// 		var content = $(this).text();
-// 		var new_content = content.replace(/_/g, ' ').replace(/role/gi, '');;
-// 		console.log(new_content)
-// 		$(this).text(new_content)
-// 	})
-// }
-
 function display_modal(){
 	var modal = $(this).data("target");
 	$(modal).fadeIn();
@@ -94,6 +85,42 @@ function login_form(){
 	})
 }
 
+function upload_avatar_ajax(e){
+	
+	var $form = $(this).closest('form'); 
+
+    var type = $form.attr("method");
+    var data = $form.serialize();
+    var url  = $form.attr("action");
+
+    var content = $form.html();
+
+    // $form.submit();
+
+    // $form.submit(function(e){
+    // 	e.preventDefault();
+    // })
+    //alert($(this).val());
+
+    $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        dataType: "html",
+        success: function() {
+            //$form.html(content);
+            //alert($(this).val());
+            alert("putain");
+      	},
+    });
+
+ //    $.post(url, data, function(data) {
+ //  		alert("putain !!!!!");
+	// });
+
+    
+}
+
 $(document).ready(function(){
 	minus_nav();
 	$('select').select2();
@@ -107,6 +134,7 @@ $(document).ready(function(){
 	$("#burger-menu-close").click(function(){
 		responsive_nav(false)
 	});
+	$("#original-file-upload").change(upload_avatar_ajax);
 })
 
 $(window).resize(function(){
