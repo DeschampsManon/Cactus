@@ -43,6 +43,10 @@ class UserController extends Controller {
                 $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
                 $user->setAvatar($avatarName);
                 $userManager->updateUser($user);
+                return $this->render(
+                    'AdminBundle::Users/avatar.html.twig', 
+                    array('user' =>  $user)
+                );
             } 
         } else if ($request->request->has($form_user->getName())) {
             // USER

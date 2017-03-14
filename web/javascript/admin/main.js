@@ -86,39 +86,22 @@ function login_form(){
 }
 
 function upload_avatar_ajax(e){
+	var $form = $(this).closest('form')
+	var form = $form.get(0); 
+	var data = new FormData(form);
+	var url  = $form.attr("action");
 	
-	var $form = $(this).closest('form'); 
-
-    var type = $form.attr("method");
-    var data = $form.serialize();
-    var url  = $form.attr("action");
-
-    var content = $form.html();
-
-    // $form.submit();
-
-    // $form.submit(function(e){
-    // 	e.preventDefault();
-    // })
-    //alert($(this).val());
-
-    $.ajax({
-        type: type,
-        url: url,
-        data: data,
-        dataType: "html",
-        success: function() {
-            //$form.html(content);
-            //alert($(this).val());
-            alert("putain");
+	$.ajax({
+		type	: 'POST', 
+		url		:  url, 
+		data		: data, 
+		dataType	: 'html', 
+		processData: false,
+		contentType: false,
+		success: function(result) {
+        	$form.find("#user-avatar").html(result);
       	},
-    });
-
- //    $.post(url, data, function(data) {
- //  		alert("putain !!!!!");
-	// });
-
-    
+	})
 }
 
 $(document).ready(function(){
