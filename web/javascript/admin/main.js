@@ -66,7 +66,6 @@ function login_form(){
 			$(this).parent().addClass("active");
 			console.log($(this).val());
 		}
-		
 	});
 
 	input.focus(function(){
@@ -90,7 +89,8 @@ function upload_avatar_ajax(e){
 	var form = $form.get(0); 
 	var data = new FormData(form);
 	var url  = $form.attr("action");
-	
+	var upload_loader;
+
 	$.ajax({
 		type	: 'POST', 
 		url		:  url, 
@@ -98,8 +98,22 @@ function upload_avatar_ajax(e){
 		dataType	: 'html', 
 		processData: false,
 		contentType: false,
+		beforeSend: function() {
+            $("label[for='original-file-upload']")
+            .css({"opacity" : "1"})
+        	upload_loader = setInterval(function() {
+	      		$("label[for='original-file-upload']").animate({
+	      			backgroundColor: 'rgba(0,0,51,.6)',
+	      		}, 800).animate({
+	       			backgroundColor: 'rgba(0,156,139,.6)',
+	      		}, 800).animate({
+	       			backgroundColor: 'rgba(220,17,86,.6)',
+	      		}, 800); 
+	    	}, 900);
+	    },
 		success: function(result) {
         	$form.find("#user-avatar").html(result);
+        	clearInterval(upload_loader);
       	},
 	})
 }
@@ -118,8 +132,10 @@ $(document).ready(function(){
 		responsive_nav(false)
 	});
 	$("#original-file-upload").change(upload_avatar_ajax);
-})
+});
 
 $(window).resize(function(){
 	minus_nav();
-})
+});
+
+
