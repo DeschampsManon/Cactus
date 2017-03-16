@@ -39,6 +39,7 @@ class UserController extends Controller {
             // AVATAR
             $form_avatar->handleRequest($request);
             if ($form_avatar->isSubmitted() && $form_avatar->isValid()) {
+                // SET AVATAR
                 $avatar = $user->getAvatar();
                 $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
                 $user->setAvatar($avatarName);
@@ -51,7 +52,8 @@ class UserController extends Controller {
         } else if ($request->request->has($form_user->getName())) {
             // USER
             $form_user->handleRequest($request);
-            if ($form_user->isSubmitted())  {
+            if ($form_user->isSubmitted() && $form_user->isValid())  {
+                // SET USER
                 $userManager->updateUser($user);
                 return $this->redirectToRoute('admin_show_users');
             }
@@ -73,15 +75,50 @@ class UserController extends Controller {
         $userManager = $this->get('fos_user.user_manager');
         $user = $userManager->createUser();
 
-        $form = $this->createForm(UserType::class, $user,[
-                'action' => $this->generateUrl('admin_create_user')
-        ]);
+        // GENERATE FORMS
+        $form_user = $this->createForm(UserType::class, $user);
+        $form_avatar = $this->createForm(AvatarType::class, $user, array( 
+                            'action' => $this->generateUrl('admin_create_user')
+                    ));
 
-        $this->ValidForm($user, $request, $form, $userManager);
+         // CHECK WHICH FORM HAS BEEN SUDMITTED 
+        if ($request->request->has($form_avatar->getName())) {
+            // AVATAR
+            $form_avatar->handleRequest($request);
+            if ($form_avatar->isSubmitted() && $form_avatar->isValid()) {
+                if (!is_null($user)) {
+                    $userManager->updateUser($user);
+                    return $this->redirectToRoute('admin_show_users');
+                } else {
+                    // SET AVATAR
+                    $avatar = $user->getAvatar();
+                    $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
+                    $user->setAvatar($avatarName);
+                    $userManager->updateUser($user);
+                    return $this->render(
+                        'AdminBundle::Users/avatar.html.twig', 
+                        array('user' =>  $user)
+                    );
+                }
+            } 
+        } else if ($request->request->has($form_user->getName())) {
+            // USER
+            $form_user->handleRequest($request);
+            if ($form_user->isSubmitted() && $form_user->isValid())  {
+                // SET USER
+                $userManager->updateUser($user);
+                return $this->redirectToRoute('admin_show_users');
+            }
+        }
 
+        // RENDER VIEW
         return $this->render(
             'AdminBundle:Users:new.html.twig', 
-            array('form' => $form->createView(), 'user' =>  $user)
+            array(
+                'form_user' => $form_user->createView(), 
+                'form_avatar' => $form_avatar->createView(), 
+                'user' =>  $user
+            )
         );
     }
 
@@ -92,23 +129,6 @@ class UserController extends Controller {
 		$userManager->deleteUser($user);
 
         return $this->redirectToRoute('admin_show_users');
-    }
-
-    public function ValidForm($user, $request, $form, $userManager){
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data_avatar = $form["avatar"]->getData();
-            if(!empty($data_avatar)){
-                $avatar = $user->getAvatar();
-                $avatarName = $this->get('app.avatar_uploader')->upload($avatar);
-                $user->setAvatar($avatarName);
-            } 
-            $userManager->updateUser($user);
-            return $this->redirectToRoute('admin_show_users');
-        }
-        
     }
 
 }
