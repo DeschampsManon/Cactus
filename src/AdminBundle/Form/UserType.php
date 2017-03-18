@@ -26,19 +26,16 @@ class UserType extends AbstractType
                     'Admin' => 'ROLE_ADMIN',
                     'Super Admin' => 'ROLE_SUPER_ADMIN',
                 ),
-                'multiple'=>true,
-                'choices_as_values'=>true,
-                'choice_value'=>function($choice){
+                'multiple' => true,
+                'choices_as_values' => true,
+                'choice_value' => function($choice){
                     return $choice;
                 }
             ))
             ->add('email', EmailType::class)
-            ->add('plainPassword', RepeatedType::class, array(
-                'type' => PasswordType::class,
-                'first_options'  => array('label' => 'Password'),
-                'second_options' => array('label' => 'Repeat Password'),
-            ))
-            ->add('phone', TextType::class)
+            ->add('phone', TextType::class, array(
+                'required' => false
+                ))
             ->add('address', TextType::class)
             ->add('city', TextType::class)
             ->add('zipCode', TextType::class)

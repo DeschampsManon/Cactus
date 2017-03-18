@@ -118,24 +118,6 @@ function upload_avatar_ajax(e){
 	})
 }
 
-function form_errors(){
-	$("form .col > div > ul").each(function(){
-		$(this).addClass("form-error");
-		$(this).parent().addClass("relative").css("overflow","hidden");
-		$(this).parent().find("input").addClass("input-error");
-	})
-
-	// $(".form-error").parent().find("input").hover(function(){
-	// 	$(this).find(".form-error li").animate({
-	// 		right : 0,
-	// 	}, 600)
-	// }, function(){
-	// 	$(this).animate({
-	// 		//right : init_right_position+"px",
-	// 	}, 600)
-	// })
-}
-
 $(document).ready(function(){
 	minus_nav();
 	$('select').select2();
@@ -150,7 +132,6 @@ $(document).ready(function(){
 		responsive_nav(false)
 	});
 	$("#original-file-upload").change(upload_avatar_ajax);
-	form_errors();
 });
 
 $(window).resize(function(){
