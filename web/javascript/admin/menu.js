@@ -15,7 +15,7 @@ function change_main_nav_width(){
 	} else if ( $(window).width() <= 1300 && $(window).width() >= 760 ) {	
 		min_nav(false);
 	} else {
-		responsive_nav();
+		mobile_nav();
 	}
 }
 
@@ -39,13 +39,14 @@ function max_nav(btn_clicked){
 	});
 	main_header.removeClass("min-nav");
 	main_header.css({ left : 0 });
+	$("#min-nav-btn").removeClass("active");
 	if(btn_clicked == true){
-		$("#min-nav-btn").removeClass("active").html("format_indent_decrease");
+		$("#min-nav-btn").html("format_indent_decrease");
 		$("#company-data > div").first().removeClass("hidden");
 	}
 }
 
-function responsive_nav(){
+function mobile_nav(){
 	var main_header = $("#main-header");
 	main_header.removeClass("min-nav");
 	main_header.animate({ width : "100%"}, 150, function(){
