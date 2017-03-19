@@ -1,10 +1,23 @@
 home: Accueil
-overview: vue d'ensemble
-admin dashboard: tableau de bord
+overview: 'vue d''ensemble'
+'admin dashboard': 'tableau de bord'
 users: utilisateurs
-manage users: gérer les utilisateurs
-create user: créer un utilisateur
-my profile: mon profil
-edit profile: modifier mon profil
-change password: changer mon mot de passe
+'manage users': 'gérer les utilisateurs'
+'create user': 'créer un utilisateur'
+'my profile': 'mon profil'
+'edit profile': 'modifier mon profil'
+'change password': 'changer mon mot de passe'
 logout: déconnexion
+
+datatable_paginate_first: précédent
+
+
+user:
+  index:
+    header_desciption : 'Cette page vous permet de modifiez ou de supprimer un utilisateur'
+    manage_users: 'Gérer les utilisateurs'
+    user: 'utilisateurs'
+    contact: 'contact'
+    address: 'adresse'
+    roles: 'roles'
+    actions: 'actions'

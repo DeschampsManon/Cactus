@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('.datatable').DataTable({
+		responsive: true,
 		"language": {
             //processing:     "I18n.datatable_processin"g,
 	        search:         "",
@@ -12,7 +13,7 @@ $(document).ready(function(){
 	        //zeroRecords:    I18n.datatable_zeroRecords,
 	        //emptyTable:     I18n.datatable_emptyTable,
 	        paginate: {
-	          //first:      I18n.datatable_paginate_first,
+	          first:      I18n.datatable_paginate_first,
 	          //last:       I18n.datatable_paginate_last
 	        }
 		}

@@ -1,15 +1,15 @@
 {% extends 'AdminBundle::base.html.twig' %}
 
 {% block title %}
-	Manage Users
+	{{ 'user.index.manage_users'|trans }}
 {% endblock %}
 
 {% block pageTitle %}
-	Manage Users
+	{{ 'user.index.manage_users'|trans }}
 {% endblock %}
 
 {% block pageSubTitle %}
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	{{ 'user.index.header_desciption'|trans }}
 {% endblock %}
 
 {% block content %}
@@ -17,23 +17,33 @@
 	    <table class="main-table datatable">
 	   		<thead>
 		   		<tr>
-		   			<th class="no-sorting no-border-right no-padding-right">user</th>
-		   			<th> </th>
-		   			<th>contact</th>
-		   			<th>address</th>
-		   			<th>roles</th>
-		   			<th class="no-sorting action">actions</th>
+		   			<th class="no-sorting no-border-right">
+		   			{{ 'user.index.user'|trans }}
+		   			</th>
+		   			<th class="no-padding-left"></th>
+		   			<th>
+		   				{{ 'user.index.contact'|trans }}
+		   			</th>
+		   			<th>
+		   				{{ 'user.index.address'|trans }}
+		   			</th>
+		   			<th>
+		   				{{ 'user.index.roles'|trans }}
+		   			</th>
+		   			<th class="no-sorting action">
+		   				{{ 'user.index.actions'|trans }}
+		   			</th>
 		   		</tr>
 		   	</thead>
 		   	<tbody>
 		   		{% for user in users %}
 					<tr>
-						<td class="no-border-right no-padding-right">
+						<td class="no-border-right">
 							<div class="content-flex picture pull-left">
 								<img src="{{ asset('images/avatar/' ~ user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';">
 							</div>
 						</td>
-						<td>
+						<td class="no-padding-left">
 							{{ user.firstname }}
 							{{ user.lastname }}
 						</td>

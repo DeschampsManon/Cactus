@@ -109,10 +109,17 @@
 	}
 }
 
+.dataTables_wrapper{
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
 .main-table{
 	border:0 transparent solid;
 	border-spacing: 0;
 	width: 100%;
+	border-collapse: collapse;
+    border-spacing: 0;
 	th{
 		background-color: blue;
 		padding:1rem 1.8rem;
@@ -126,7 +133,7 @@
 			border-left:.1rem solid rgba(158,173,195,.16);
 		}
 		&.action{
-			width: 108px!important;
+			width: 125px!important;
 		}
 	}
 	tbody{
