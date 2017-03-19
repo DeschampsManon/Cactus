@@ -112,6 +112,10 @@ fieldset{
 	position: relative;
 }
 
+.hidden{
+	display: none!important;	
+}
+
 .white-content{
 	background-color: #fff;
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);

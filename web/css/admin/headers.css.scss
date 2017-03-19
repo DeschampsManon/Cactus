@@ -61,6 +61,10 @@
 			color: #fff;
 			font-size: 2rem;
 			cursor: pointer;
+			&.active{
+				width: 100%;
+				text-align: center;
+			}
 		}
 		#burger-menu-close{
 			float: left;
