@@ -56,6 +56,8 @@ class UserController extends Controller {
                 // SET USER
                 $userManager->updateUser($user);
                 return $this->redirectToRoute('admin_show_users');
+            } else {
+                $form_user->getErrors();
             }
         }
 

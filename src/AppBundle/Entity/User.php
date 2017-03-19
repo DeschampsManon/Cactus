@@ -114,8 +114,12 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(name="avatar", type="string", nullable=true)
-     *
-     * @Assert\File(mimeTypes={ "image/png", "image/gif", "image/jpeg", "image/pjpeg" })
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage = "Please upload a valid image format",
+     *     uploadErrorMessage = "An error occurred during upload"
+     * )
      */
     private $avatar;
 

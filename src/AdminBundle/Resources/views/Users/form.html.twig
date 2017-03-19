@@ -6,6 +6,7 @@
                 {% include 'AdminBundle::Users/avatar.html.twig' %}
             </div>
         {{ form_end(form_avatar) }}
+        {{ form_errors(form_user) }}
     </div>
     <div class="col user-form-container">
         {{ form_start(form_user, {'attr': {'id': 'user-form'}}) }}
