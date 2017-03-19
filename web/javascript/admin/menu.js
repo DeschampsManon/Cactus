@@ -10,21 +10,12 @@ function page_width() {
 }
 
 function change_main_nav_width(){
-	var main_header = $("#main-header")
 	if( $(window).width() >= 1300 ){
-		main_header.animate({ width : "30rem"}, 150, function(){
-			page_width();
-		});
-		main_header.removeClass("min-nav");
-		main_header.css({ left : 0 });
+		max_nav(false);
 	} else if ( $(window).width() <= 1300 && $(window).width() >= 760 ) {	
-		min_nav();
+		min_nav(false);
 	} else {
-		main_header.removeClass("min-nav");
-		main_header.animate({ width : "100%"}, 150, function(){
-			page_width();
-		});
-		main_header.css({ left : "-100%" });
+		responsive_nav();
 	}
 }
 
@@ -39,6 +30,28 @@ function min_nav(btn_clicked){
 		$("#min-nav-btn").addClass("active").html("format_indent_increase");
 		$("#company-data > div").first().addClass("hidden");
 	}
+}
+
+function max_nav(btn_clicked){
+	var main_header = $("#main-header");
+	main_header.animate({ width : "30rem"}, 150, function(){
+		page_width();
+	});
+	main_header.removeClass("min-nav");
+	main_header.css({ left : 0 });
+	if(btn_clicked == true){
+		$("#min-nav-btn").removeClass("active").html("format_indent_decrease");
+		$("#company-data > div").first().removeClass("hidden");
+	}
+}
+
+function responsive_nav(){
+	var main_header = $("#main-header");
+	main_header.removeClass("min-nav");
+	main_header.animate({ width : "100%"}, 150, function(){
+		page_width();
+	});
+	main_header.css({ left : "-100%" });
 }
 
 function responsive_nav(boolean){
@@ -58,7 +71,12 @@ $(document).ready(function(){
 		responsive_nav(false)
 	});
 	$("#min-nav-btn").click(function(){
-		min_nav(true);
+		if($("#main-header").hasClass("min-nav")){
+			max_nav(true);
+		} else {
+			min_nav(true);
+		}
+		
 	});
 });
 
