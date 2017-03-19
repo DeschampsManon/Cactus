@@ -1,5 +1,5 @@
 function display_user_data(){
-	$(this).parent().find("ul").slideToggle();
+	$(this).parent().find("ul").first().slideToggle();
 }
 
 $(document).ready(function(){
