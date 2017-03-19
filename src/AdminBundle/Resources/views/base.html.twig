@@ -14,9 +14,10 @@
     {% endstylesheets %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="active-loader">
 {% if app.request.get('_route') != 'admin_security_login' %}
     {% include 'AdminBundle::Includes/main-header.html.twig' %}
+    {% include 'AdminBundle::Includes/page-loader.html.twig' %}
     <div class="page">
         {% include 'AdminBundle::Includes/second-header.html.twig' %}
         <header id="page-header">
@@ -45,11 +46,10 @@
     </div>
 {% endif %}
 
-{% block footer %}{% endblock footer %}
 {% javascripts 'javascript/library/jquery-3.1.1.min.js' 
                'javascript/library/jquery-ui.min.js' 
                'javascript/library/jquery-validate.min.js' 
-               'javascript/library/datatable-launcher.js' 
+               'javascript/library/jquery-dataTables.min.js' 
                'javascript/admin/*'
 %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
