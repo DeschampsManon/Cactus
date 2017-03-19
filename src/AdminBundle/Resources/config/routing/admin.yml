@@ -27,3 +27,9 @@ admin_delete_user:
     defaults: { _controller: "AdminBundle:User:delete" }
     requirements:
         _method: GET
+
+admin_change_password:
+    path: /users/password_reset/{id}
+    defaults: { _controller: "AdminBundle:User:password_reset" }
+    requirements:
+        _method: GET

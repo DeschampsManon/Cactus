@@ -28,9 +28,15 @@
                                 </a>
                             </div>
                         </li>
-                        <div class="user-shortcut">
-                            <li></li>
-                        </div>
+                        <li class="user-shortcut">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('admin_change_password', {'id': app.user.id }) }}">
+                                        change password 
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="btn-logout">
                             <a href="{{ path('admin_security_logout') }}" class="btn">
                                 <i class="material-icons">power_settings_new</i>
