@@ -14,35 +14,35 @@
         <ul>
             <div>
                 <li>
-                    <h2>overview</h2>
+                    <h2>{{ 'overview'|trans }}</h2>
                 </li>
                 <li>
                     <a href="{{ path('admin_index') }}">
                         <i class="material-icons">home</i>
-                        <p>admin dashboard</p>
+                        <p>{{ 'admin dashboard'|trans }}</p>
                     </a>
                 </li>
             </div>
             <div>
                 <li>
-                    <h2>users</h2>
+                    <h2>{{ 'users'|trans }}</h2>
                 </li>
                 <li>
                     <a href="{{ path('admin_show_users') }}">
                         <i class="material-icons">people</i>
-                        <p>manage users</p>
+                        <p>{{ 'manage users'|trans }}</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ path('admin_create_user') }}">
                         <i class="material-icons">add</i>
-                        <p>create user</p>
+                        <p>{{ 'create user'|trans }}</p>
                     </a>
                 </li>
                 <li>
                     <a href="{{ path('admin_update_user', {'id': app.user.id }) }}">
                         <i class="material-icons">face</i>
-                        <p>my profile</p>
+                        <p>{{ 'my profile'|trans }}</p>
                     </a>
                 </li>
             </div>
