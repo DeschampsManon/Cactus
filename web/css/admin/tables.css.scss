@@ -120,6 +120,7 @@
 	width: 100%;
 	border-collapse: collapse;
     border-spacing: 0;
+    table-layout: fixed;
 	th{
 		background-color: blue;
 		padding:1rem 1.8rem;
@@ -133,7 +134,7 @@
 			border-left:.1rem solid rgba(158,173,195,.16);
 		}
 		&.action{
-			width: 125px!important;
+			width: 115px!important;
 		}
 	}
 	tbody{
