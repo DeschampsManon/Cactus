@@ -8,16 +8,29 @@ users: utilisateurs
 'edit profile': 'modifier mon profil'
 'change password': 'changer mon mot de passe'
 logout: déconnexion
+form_description: 'Les champs suivis d''un astérisque sont obligatoires'
 
-datatable_paginate_first: précédent
-
+user_firstname: Prénom
+user_lastname: Nom
+user_roles: Rôle(s)
+user_email: Email
+user_plainPassword_first: Mot de passe
+user_plainPassword_second: Confirmation du mot de passe
+user_phone: Téléphone
+user_address: Adresse
+user_city: Ville
+user_zipCode: Code postal
 
 user:
-  index:
-    header_desciption : 'Cette page vous permet de modifiez ou de supprimer un utilisateur'
-    manage_users: 'Gérer les utilisateurs'
-    user: 'utilisateurs'
-    contact: 'contact'
-    address: 'adresse'
-    roles: 'roles'
-    actions: 'actions'
+    index:
+        manage_users: 'Gérer les utilisateurs'
+        header_description : 'Cette page vous permet de modifiez ou de supprimer un utilisateur'
+        user: 'utilisateurs'
+        contact: 'contact'
+        address: 'adresse'
+        roles: 'roles'
+        actions: 'actions'
+    create:
+        create_user: 'Ajouter un utilisateur'
+        header_description : 'Cette page vous permet d''enregistrer un nouvel utilisateur'
+   

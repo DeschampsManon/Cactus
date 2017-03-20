@@ -1,46 +1,58 @@
 {{ form_start(form_user, {'attr': {'id': 'user-form'}}) }}
     <div class="row">
         <div class="col moitie">
-            {{ form_row(form_user.firstname) }}
+            {{ form_label(form_user.firstname, form_user.firstname.vars.id) }}
+            {{ form_widget(form_user.firstname) }}
         </div>
         <div class="col moitie">
-            {{ form_row(form_user.lastname) }}
+            {{ form_label(form_user.lastname, form_user.lastname.vars.id) }}
+            {{ form_widget(form_user.lastname) }}
         </div>
     </div>
     <div class="row">
         <div class="col moitie">
-            {{ form_row(form_user.roles) }}
+            {{ form_label(form_user.roles, form_user.roles.vars.id) }}
+            {{ form_widget(form_user.roles) }}
         </div>
         <div class="col moitie">
-            {{ form_row(form_user.email) }}
+            {{ form_label(form_user.email, form_user.email.vars.id) }}
+            {{ form_widget(form_user.email) }}
         </div>
     </div>
     {% if app.request.get('_route') == 'admin_create_user' %}
         <div class="row">
             <div class="col moitie">
-                {{ form_row(form_user.plainPassword.first) }}
+                {{ form_label(form_user.plainPassword.first, form_user.plainPassword.first.vars.id) }}
+                {{ form_widget(form_user.plainPassword.first) }}
             </div>
             <div class="col moitie">
-                {{ form_row(form_user.plainPassword.second) }}
+                {{ form_label(form_user.plainPassword.second, form_user.plainPassword.second.vars.id) }}
+                {{ form_widget(form_user.plainPassword.second) }}
             </div>
         </div>
     {% endif %}
     <div class="row">
         <div class="col moitie">
-            {{ form_row(form_user.phone) }}
+            {{ form_label(form_user.phone, form_user.phone.vars.id) }}
+            {{ form_widget(form_user.phone) }}
         </div>
         <div class="col moitie">
-            {{ form_row(form_user.address) }}
+            {{ form_label(form_user.address, form_user.address.vars.id) }}
+            {{ form_widget(form_user.address) }}
         </div>
     </div>
     <div class="row">
         <div class="col moitie">
-            {{ form_row(form_user.city) }}
+            {{ form_label(form_user.city, form_user.city.vars.id) }}
+            {{ form_widget(form_user.city) }}
         </div>
         <div class="col moitie">
-            {{ form_row(form_user.zipCode) }}
+            {{ form_label(form_user.zipCode, form_user.zipCode.vars.id) }}
+            {{ form_widget(form_user.zipCode) }}
         </div>
     </div>
-    <button type="submit" class="btn btn-aqua">Submit</button>
+    <button type="submit" class="btn btn-aqua">
+
+    </button>
 {{ form_end(form_user) }}
 
