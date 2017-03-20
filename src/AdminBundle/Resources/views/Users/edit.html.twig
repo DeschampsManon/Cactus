@@ -15,8 +15,21 @@
 {% endblock %}
 
 {% block content %}
-	<div class="white-content clearfix">
-		<h2>Lorem ipsum dolor sit amet</h2>
-		{% include 'AdminBundle::Users/form.html.twig' %}
-	</div>
+<div class="white-content clearfix">
+	<h2>Lorem ipsum dolor sit amet</h2>
+	<div class="row">
+	    <div class="col relative" style="width:17rem;">
+	        {{ form_start(form_avatar, {'attr': {'id': 'user-avatar-form'}}) }}
+	            {{ form_row(form_avatar.avatar, {'id': 'original-file-upload'}) }}
+	            <div class="content-flex avatar relative" id="user-avatar">
+	                {% include 'AdminBundle::Users/avatar.html.twig' %}
+	            </div>
+	            <div class="form-error"></div>
+	        {{ form_end(form_avatar) }}
+	    </div>
+	    <div class="col user-form-container">
+	        {% include 'AdminBundle::Users/form.html.twig' %}
+	   </div>  
+	</div>  
+</div>
 {% endblock %}

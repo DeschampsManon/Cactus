@@ -118,7 +118,8 @@ class User extends BaseUser
      *     maxSize = "2M",
      *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
      *     mimeTypesMessage = "Please upload a valid image format",
-     *     uploadErrorMessage = "An error occurred during upload"
+     *     uploadErrorMessage = "An error occurred during upload",
+     *     groups = {"create"}
      * )
      */
     private $avatar;

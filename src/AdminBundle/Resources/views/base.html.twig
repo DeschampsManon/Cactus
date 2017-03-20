@@ -30,6 +30,10 @@
         </header>
 {% endif %}
         <div class="container">
+            <div class="alert hidden">
+                <p class="result"></p>
+                <i class="material-icons close-alert">close</i>
+            </div>
             {% for flashMessage in app.session.flashbag.get('notice') %}
                 <div>
                     {{ flashMessage }}

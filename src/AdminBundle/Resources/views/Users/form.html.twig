@@ -1,48 +1,46 @@
-<div class="row">
-    <div class="col relative">
-        {{ form_start(form_avatar, {'attr': {'id': 'user-avatar-form'}}) }}
-            {{ form_row(form_avatar.avatar, {'id': 'original-file-upload'}) }}
-            <div class="content-flex avatar relative" id="user-avatar">
-                {% include 'AdminBundle::Users/avatar.html.twig' %}
-            </div>
-        {{ form_end(form_avatar) }}
-        {{ form_errors(form_user) }}
+{{ form_start(form_user, {'attr': {'id': 'user-form'}}) }}
+    <div class="row">
+        <div class="col moitie">
+            {{ form_row(form_user.firstname) }}
+        </div>
+        <div class="col moitie">
+            {{ form_row(form_user.lastname) }}
+        </div>
     </div>
-    <div class="col user-form-container">
-        {{ form_start(form_user, {'attr': {'id': 'user-form'}}) }}
-            <div class="row">
-                <div class="col moitie">
-                    {{ form_row(form_user.firstname) }}
-                </div>
-                <div class="col moitie">
-                    {{ form_row(form_user.lastname) }}
-                </div>
+    <div class="row">
+        <div class="col moitie">
+            {{ form_row(form_user.roles) }}
+        </div>
+        <div class="col moitie">
+            {{ form_row(form_user.email) }}
+        </div>
+    </div>
+    {% if app.request.get('_route') == 'admin_create_user' %}
+        <div class="row">
+            <div class="col moitie">
+                {{ form_row(form_user.plainPassword.first) }}
             </div>
-            <div class="row">
-                <div class="col moitie">
-                    {{ form_row(form_user.roles) }}
-                </div>
-                <div class="col moitie">
-                    {{ form_row(form_user.email) }}
-                </div>
+            <div class="col moitie">
+                {{ form_row(form_user.plainPassword.second) }}
             </div>
-            <div class="row">
-                <div class="col moitie">
-                    {{ form_row(form_user.phone) }}
-                </div>
-                <div class="col moitie">
-                    {{ form_row(form_user.address) }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col moitie">
-                    {{ form_row(form_user.city) }}
-                </div>
-                <div class="col moitie">
-                    {{ form_row(form_user.zipCode) }}
-                </div>
-            </div>
-            <button type="submit" class="btn btn-aqua">Submit</button>
-        {{ form_end(form_user) }}
-    </div>    
-</div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col moitie">
+            {{ form_row(form_user.phone) }}
+        </div>
+        <div class="col moitie">
+            {{ form_row(form_user.address) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col moitie">
+            {{ form_row(form_user.city) }}
+        </div>
+        <div class="col moitie">
+            {{ form_row(form_user.zipCode) }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-aqua">Submit</button>
+{{ form_end(form_user) }}
+

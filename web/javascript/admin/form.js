@@ -33,35 +33,45 @@ function upload_avatar_ajax(e){
 	var url  = $form.attr("action");
 	var upload_loader;
 
-	$.ajax({
-		type: 'POST', 
-		url: url, 
-		data: data, 
-		dataType: 'html', 
-		processData: false,
-		contentType: false,
-		beforeSend: function() {
-            $("label[for='original-file-upload']")
-            .css({"opacity" : "1"})
-        	upload_loader = setInterval(function() {
-	      		$("label[for='original-file-upload']").animate({
-	      			backgroundColor: 'rgba(0,0,51,.6)',
-	      		}, 800).animate({
-	       			backgroundColor: 'rgba(0,156,139,.6)',
-	      		}, 800).animate({
-	       			backgroundColor: 'rgba(220,17,86,.6)',
-	      		}, 800); 
-	    	}, 900);
-	    },
-		success: function(result) {
-        	$form.find("#user-avatar").html(result);
-        	clearInterval(upload_loader);
-      	},
-      	error: function(result) {
-        	//$("user-avatar-form").append(result.responseText);
-        	clearInterval(upload_loader);
-    	}
-	})
+    var file_data = $(this)[0].files[0];
+    var mimetype = file_data.type
+    if(  mimetype == "image/jpeg" || mimetype == "image/gif" || mimetype == "image/png"){
+    	$.ajax({
+			type: 'POST', 
+			url: url, 
+			data: data, 
+			dataType: 'html', 
+			processData: false,
+			contentType: false,
+			beforeSend: function() {
+	            $("label[for='original-file-upload']")
+	            .css({"opacity" : "1"})
+	        	upload_loader = setInterval(function() {
+		      		$("label[for='original-file-upload']").animate({
+		      			backgroundColor: 'rgba(0,0,51,.6)',
+		      		}, 800).animate({
+		       			backgroundColor: 'rgba(0,156,139,.6)',
+		      		}, 800).animate({
+		       			backgroundColor: 'rgba(220,17,86,.6)',
+		      		}, 800); 
+		    	}, 900);
+		    },
+			success: function(result) {
+	        	$form.find("#user-avatar").html(result);
+	        	clearInterval(upload_loader);
+	        	display_alert("success","your avatar has been changed");
+	        	var new_src = $("#user-avatar > img").attr("src");
+	        	$("#second-header .user-avatar").attr("src",new_src);
+	      	},
+	      	error: function(result) {
+	        	clearInterval(upload_loader);
+	        	display_alert("error","an error occured");
+	    	}
+		})
+    } else {
+    	display_alert("error", "please upload a valid image format");
+    }
+	
 }
 
 $(document).ready(function(){

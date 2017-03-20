@@ -17,10 +17,10 @@
 	    <table class="main-table datatable">
 	   		<thead>
 		   		<tr>
-		   			<th class="no-sorting no-border-right">
+		   			<th class="no-sorting avatar no-border-right">
 		   			{{ 'user.index.user'|trans }}
 		   			</th>
-		   			<th class="no-padding-left"></th>
+		   			<th class="contact no-padding-left"></th>
 		   			<th>
 		   				{{ 'user.index.contact'|trans }}
 		   			</th>
@@ -37,7 +37,7 @@
 		   	</thead>
 		   	<tbody>
 		   		{% for user in users %}
-					<tr>
+					<tr id="user_{{ user.id }}">
 						<td class="no-border-right">
 							<div class="content-flex picture pull-left">
 								<img src="{{ asset('images/avatar/' ~ user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';">
@@ -65,10 +65,12 @@
 							<a href="{{ path('admin_update_user', {'id': user.id }) }}" class="btn btn-aqua">
 								<i class="material-icons">mode_edit</i>
 							</a>
-							<a href="#!" class="btn btn-darkpurple" data-toggle="modal" data-target="#delete-confirmation_{{user.id}}">
-								<i class="material-icons">delete</i>
-							</a>
-							{{ include('AdminBundle::Includes/delete-confirmation.html.twig') }}
+							{% if user.id != app.user.id %}
+								<a href="#!" class="btn btn-darkpurple" data-toggle="modal" data-target="#delete-confirmation_{{user.id}}">
+									<i class="material-icons">delete</i>
+								</a>
+								{{ include('AdminBundle::Includes/delete-confirmation.html.twig') }}
+							{% endif %}
 						</td>
 					</tr>
 				{% endfor %}

@@ -6,7 +6,7 @@
                 <li>
                     <a href="#!">
                         <div class="content-flex avatar-thumbnail">
-                            <img src="{{ asset('images/avatar/' ~ app.user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';">
+                            <img src="{{ asset('images/avatar/' ~ app.user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';" class="user-avatar">
                         </div>
                         <p>
                             {{ app.user.firstname }} {{ app.user.lastname }}
@@ -16,7 +16,7 @@
                     <ul>
                         <li class="user-profile">
                             <div class="content-flex avatar-thumbnail pull-left">
-                                <img src="{{ asset('images/avatar/' ~ app.user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';">
+                                <img src="{{ asset('images/avatar/' ~ app.user.avatar) }}" onError="this.onerror=null;this.src='{{ asset('images/error/no-image.png') }}';" class="user-avatar">
                             </div>
                             <div class="pull-left">
                                 <p>

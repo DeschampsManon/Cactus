@@ -12,7 +12,9 @@
 			<p>are you sure ?</p>
 		</div>
 		<div class="modal-footer">
-	  		<a href="{{ path('admin_delete_user', {'id': user.id }) }}">Agree</a>
+	  		<a href="{{ path('admin_delete_user', {'id': user.id }) }}" class="delete-user-btn" data-id="{{ user.id }}">
+	  			Agree
+	  		</a>
 		</div>
 	</div>
 </div>
