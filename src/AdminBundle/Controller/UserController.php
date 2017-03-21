@@ -109,6 +109,15 @@ class UserController extends Controller {
         // GENERATE FORMS
         $form_password = $this->createForm(ChangePasswordType::class, $user);
 
+        $form_password->handleRequest($request);
+        if ($form_password->isSubmitted() && $form_password->isValid())  {
+            // SET USER
+            $userManager->updateUser($user);
+            return $this->redirectToRoute('admin_show_users');
+        } else {
+            $form_password->getErrors();
+        }
+            
         // RENDER VIEW
         return $this->render(
             'AdminBundle:Users:change_password.html.twig', 
