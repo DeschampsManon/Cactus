@@ -40,4 +40,8 @@ user:
         header_description : 'Cette page vous permet d''enregistrer un nouvel utilisateur'
     update:
         header_description : 'Cette page vous permet de modifiez les informations d''un utilisateur'
+    delete_modal:
+        title: 'Supprimer l''utilisateur'
+        description: 'Êtes vous sur de vouloir supprimer l''utilisateur :'
+        confirm_btn: 'D''accord'
    

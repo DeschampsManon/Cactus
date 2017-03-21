@@ -2,18 +2,22 @@
 	<div class="modal-content">
 		<div class="modal-header clearfix">
 		 	<h4>
-		  		delete confirmation
+		  		{{ 'user.delete_modal.title'|trans }}
 		  	</h4>
 		  	<a href="#!" class="close-modal">
 				<i class="material-icons">close</i>
 			</a>
 		</div>
 		<div class="modal-body">
-			<p>are you sure ?</p>
+			<p>
+				{{ 'user.delete_modal.description'|trans }}
+				{{ user.firstname }}
+				{{ user.lastname }}
+			</p>
 		</div>
 		<div class="modal-footer">
 	  		<a href="{{ path('admin_delete_user', {'id': user.id }) }}" class="delete-user-btn" data-id="{{ user.id }}">
-	  			Agree
+	  			{{ 'user.delete_modal.confirm_btn'|trans }}
 	  		</a>
 		</div>
 	</div>
