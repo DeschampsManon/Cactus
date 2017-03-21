@@ -58,7 +58,6 @@ function upload_avatar_ajax(e){
         	clearInterval(upload_loader);
       	},
       	error: function(result) {
-        	//$("user-avatar-form").append(result.responseText);
         	clearInterval(upload_loader);
     	}
 	})
