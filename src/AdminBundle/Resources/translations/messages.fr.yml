@@ -41,8 +41,12 @@ user:
     create:
         create_user: 'Ajouter un utilisateur'
         header_description : 'Cette page vous permet d''enregistrer un nouvel utilisateur'
+        flash: 
+            success: 'L''utilisateur a bien été créé'
     update:
         header_description : 'Cette page vous permet de modifiez les informations d''un utilisateur'
+        flash: 
+            success: 'L''utilisateur a bien été mis à jour'
     delete_modal:
         title: 'Supprimer l''utilisateur'
         description: 'Êtes vous sur de vouloir supprimer l''utilisateur :'

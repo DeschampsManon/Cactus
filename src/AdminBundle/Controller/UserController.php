@@ -56,6 +56,11 @@ class UserController extends Controller {
             if ($form_user->isSubmitted() && $form_user->isValid())  {
                 // SET USER
                 $userManager->updateUser($user);
+
+                $request->getSession()
+                ->getFlashBag()
+                ->add('success', 'user.update.flash.success');
+
                 return $this->redirectToRoute('admin_show_users');
             } else {
                 $form_user->getErrors();
@@ -85,6 +90,11 @@ class UserController extends Controller {
         if ($form_user->isSubmitted() && $form_user->isValid()) {
             $userManager->updateUser($user);
             $id = $user->getId();
+
+            $request->getSession()
+            ->getFlashBag()
+            ->add('success', 'user.create.flash.success');
+
             return $this->redirectToRoute('admin_update_user', 
                             array('id' => $id)
                           );

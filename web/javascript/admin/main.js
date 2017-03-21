@@ -25,7 +25,8 @@ function close_alert(){
 }
 
 function display_alert(status, msg){
-	$(".alert").removeClass("hidden").addClass(status).find(".result").html(msg);
+	$(".alert").addClass("hidden");
+	$(".alert.ajax-notice").removeClass("hidden").addClass(status).find(".result").html(msg);
 }
 
 $(document).ready(function(){
