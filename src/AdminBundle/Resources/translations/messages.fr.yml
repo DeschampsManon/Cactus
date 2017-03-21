@@ -20,6 +20,9 @@ user_address: Adresse
 user_city: Ville
 user_zipCode: Code postal
 
+change_password_plainPassword_first: Mot de passe
+change_password_plainPassword_second: Confirmation du mot de passe
+
 form:
     description: 'Les champs suivis d''un astérisque sont obligatoires'
     btn:
@@ -44,7 +47,9 @@ user:
         title: 'Supprimer l''utilisateur'
         description: 'Êtes vous sur de vouloir supprimer l''utilisateur :'
         confirm_btn: 'D''accord'
-    reset_password:
+    change_password:
         title: 'Changer mon mot de passe'
         header_description : 'Cette page vous permet de modifiez votre mot de passe'
+        flash: 
+            success: 'Votre mot de passe à bien été changé'
    

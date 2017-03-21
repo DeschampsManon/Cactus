@@ -34,16 +34,23 @@
                 <p class="result"></p>
                 <i class="material-icons close-alert">close</i>
             </div>
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div>
-                    {{ flashMessage }}
+            {% if app.session.flashBag.has('success') %}
+                <div class="alert success">
+                    {% for msg in app.session.flashBag.get('success') %}
+                        <p class="result">{{ msg|trans }}</p>
+                    {% endfor %}
+                    <i class="material-icons close-alert">close</i>
                 </div>
-            {% endfor %}
-            {% for flashMessage in app.session.flashbag.get('error') %}
-                <div>
-                    {{ flashMessage }}
+            {% endif %}
+            {% if app.session.flashBag.has('error') %}
+                <div class="alert error">
+                    {% for msg in app.session.flashBag.get('error') %}
+                        <p class="result">{{ msg }}</p>
+                    {% endfor %}
+                    <i class="material-icons close-alert">close</i>
                 </div>
-            {% endfor %}
+            {% endif %}
+
         	{% block content %}{% endblock %}
         </div>
 {% if app.request.get('_route') != 'admin_security_login' %}
