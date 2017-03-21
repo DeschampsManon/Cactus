@@ -52,7 +52,11 @@
         </div>
     </div>
     <button type="submit" class="btn btn-aqua">
-
+        {% if app.request.get('_route') == 'admin_create_user' %}
+            {{ "form.btn.create" | trans}}
+        {% elseif app.request.get('_route') == 'admin_update_user' %}
+            {{ "form.btn.update" | trans}}
+        {% endif %}
     </button>
 {{ form_end(form_user) }}
 

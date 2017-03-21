@@ -11,12 +11,12 @@
 {% endblock %}
 
 {% block pageSubTitle %}
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+	{{ 'user.update.header_description'|trans }}
 {% endblock %}
 
 {% block content %}
 <div class="white-content clearfix">
-	<h2>Lorem ipsum dolor sit amet</h2>
+	<h2>{{ 'form.description'|trans }}</h2>
 	<div class="row">
 	    <div class="col relative" style="width:17rem;">
 	        {{ form_start(form_avatar, {'attr': {'id': 'user-avatar-form'}}) }}

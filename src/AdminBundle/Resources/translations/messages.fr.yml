@@ -8,7 +8,6 @@ users: utilisateurs
 'edit profile': 'modifier mon profil'
 'change password': 'changer mon mot de passe'
 logout: déconnexion
-form_description: 'Les champs suivis d''un astérisque sont obligatoires'
 
 user_firstname: Prénom
 user_lastname: Nom
@@ -20,6 +19,12 @@ user_phone: Téléphone
 user_address: Adresse
 user_city: Ville
 user_zipCode: Code postal
+
+form:
+    description: 'Les champs suivis d''un astérisque sont obligatoires'
+    btn:
+        create: 'Créer'
+        update: 'Mettre à jour'
 
 user:
     index:
@@ -33,4 +38,6 @@ user:
     create:
         create_user: 'Ajouter un utilisateur'
         header_description : 'Cette page vous permet d''enregistrer un nouvel utilisateur'
+    update:
+        header_description : 'Cette page vous permet de modifiez les informations d''un utilisateur'
    
